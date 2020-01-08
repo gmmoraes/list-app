@@ -198,21 +198,15 @@ export default {
   methods: {
     editMode(user) {
       /* eslint-disable no-console */
-      console.log("lol1");
       this.cachedUser = Object.assign({}, user);
       this.editing = user.id;
       console.log(user);
     },
     cancelEdit(user) {
-      /* eslint-disable no-console */
-      console.log("lol2");
       Object.assign(user, this.cachedUser);
       this.editing = null;
     },
     editUser(user) {
-      /* eslint-disable no-console */
-      console.log("lol");
-
       if (user.usuario === "" || user.email === "") return;
       this.$emit("edit:user", user.id, user);
       this.editing = null;
