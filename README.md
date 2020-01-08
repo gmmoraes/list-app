@@ -1,5 +1,11 @@
 # list-app
 
+## Funcionalidades 
+* Edição de eliminação elementos da tabela
+* Pesquisa pela searchbar
+* Dados salvos em cache (modificações realizadas na tabela também)
+
+
 ## Project setup
 ```
 npm install
@@ -25,8 +31,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-## Funcionalidades 
-Edição de eliminação elementos da tabela
-Pesquisa pela searchbar
-Dados salvos em cache (modificações realizadas na tabela também)
 
