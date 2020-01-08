@@ -4,7 +4,7 @@
 * Edição e eliminação de elementos da tabela
 * Pesquisa pela searchbar
 * Dados salvos em cache (modificações realizadas na tabela também)
-
+* Paginação
 
 ## Project setup
 ```
