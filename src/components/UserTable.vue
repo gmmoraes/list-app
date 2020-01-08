@@ -11,7 +11,7 @@
             :footer-props="{'items-per-page-options': [7,14, 28, 42,56, 100]}"
             :items-per-page="6"
             show-select
-            :currentTablePage="page"
+            :page="currentTablePage"
             :hide-default-footer="true"
           >
             <template v-slot:body="{ items }">
@@ -105,15 +105,15 @@
 
             <template slot="footer">
               <div class="containerFooter pt-5 pb-5">
-                <v-btn text class="leftFootButton">Primeiro</v-btn>
+                <v-btn text class="leftFootButton" @click="jumpPage(false)">Primeiro</v-btn>
 
-                <v-btn text class="leftFootButton ml-2">Anterior</v-btn>
+                <v-btn text class="leftFootButton ml-2"  @click="changePag(true)">Anterior</v-btn>
 
                 <v-btn text class="pink white--text ml-2">{{currentTablePage}}</v-btn>
 
-                <v-btn text class="rightFootButton ml-2">Próximo</v-btn>
+                <v-btn text class="rightFootButton ml-2" @click="changePag(false)">Próximo</v-btn>
 
-                <v-btn text class="rightFootButton ml-2">Último</v-btn>
+                <v-btn text class="rightFootButton ml-2" @click="jumpPage(true)">Último</v-btn>
               </div>
             </template>
           </v-data-table>
@@ -192,6 +192,10 @@ export default {
   watch: {
     dialog(val) {
       val || this.close();
+    },
+
+    currentTablePage(val) {
+      this.currentTablePage = val
     }
   },
 
@@ -219,7 +223,27 @@ export default {
     getBackgroundColor(id, idName) {
       if (id % 2 == 0) return "grey" + idName;
       else return "white" + idName;
-    }
+    },
+
+    changePag(anterior){
+      if (anterior == true && this.currentTablePage > 1) {
+        this.currentTablePage -= 1;
+      } else if (anterior == false) {
+        this.currentTablePage += 1;
+      }
+      
+    },
+
+    jumpPage(goToLast){
+      if (goToLast == true) {
+        this.currentTablePage = 4;
+      } else if (goToLast == false) {
+        this.currentTablePage = 1;
+      }
+      
+    },
+
+
   }
 };
 </script>
