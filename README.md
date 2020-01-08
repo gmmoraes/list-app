@@ -1,7 +1,7 @@
 # list-app
 
 ## Funcionalidades adicionais
-* Edição de eliminação elementos da tabela
+* Edição e eliminação de elementos da tabela
 * Pesquisa pela searchbar
 * Dados salvos em cache (modificações realizadas na tabela também)
 
