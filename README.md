@@ -6,6 +6,9 @@
 * Dados salvos em cache (modificações realizadas na tabela também)
 * Paginação
 
+### Em progesso
+Acessibilidade
+
 ## Project setup
 ```
 npm install
