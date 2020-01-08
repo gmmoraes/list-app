@@ -23,50 +23,51 @@
                   :class="getBackgroundColor(item.id,'Background')"
                 >
                   <td>
-                    <v-checkbox id="userRowCheckBox"></v-checkbox>
+                    <v-checkbox id="userRowCheckBox" v-model="userCheckbox" :aria-checked="'${userCheckbox.toString()}'"></v-checkbox>
                   </td>
                   <td id="extraSpace"></td>
-                  <td v-if="editing === item.id" data-label="usuario" class="userTD">
+                  <td v-if="editing === item.id" data-label="usuario" class="userTD" aria-label="usuario">
                     <input type="text" v-model="item.usuario" class="editInput" />
                   </td>
-                  <td v-else class="userTD" data-label="usuario">{{ item.usuario }}</td>
+                  <td v-else class="userTD" data-label="usuario" aria-label="usuario">{{ item.usuario }}</td>
 
-                  <td v-if="editing === item.id" data-label="email">
+                  <td v-if="editing === item.id" data-label="email" aria-label="email">
                     <input type="text" v-model="item.email" class="editInput" />
                   </td>
-                  <td v-else data-label="email">{{ item.email }}</td>
+                  <td v-else data-label="email" aria-label="email">{{ item.email }}</td>
 
-                  <td v-if="editing === item.id" data-label="data de inclusão">
+                  <td v-if="editing === item.id" data-label="data de inclusão" aria-label="data de inclusão">
                     <input type="text" v-model="item.dataDeInclusao" class="editInput" />
                   </td>
-                  <td v-else data-label="data de inclusão">{{ item.dataDeInclusao }}</td>
+                  <td v-else data-label="data de inclusão" aria-label="data de inclusão">{{ item.dataDeInclusao }}</td>
 
                   <td v-if="editing === item.id" data-label="data de alteração">
                     <input type="text" v-model="item.dataDeAlteracao" class="editInput" />
                   </td>
                   <td v-else data-label="data de alteração">{{ item.dataDeAlteracao }}</td>
 
-                  <td v-if="editing === item.id" data-label="regras">
+                  <td v-if="editing === item.id" data-label="regras" aria-label="regras">
                     <input type="text" v-model="item.regras" class="editInput" />
                   </td>
-                  <td v-else data-label="regras">{{ item.regras }}</td>
+                  <td v-else data-label="regras" aria-label="regras">{{ item.regras }}</td>
 
-                  <td v-if="editing === item.id " data-label="status">
+                  <td v-if="editing === item.id " data-label="status" aria-label="status do usuário">
                     <input type="text" v-model="item.regras" class="editInput" />
                   </td>
-                  <td v-else :class="getColor(item.status)" data-label="status">{{ item.status }}</td>
+                  <td v-else :class="getColor(item.status)" data-label="status" aria-label="status do usuário">{{ item.status }}</td>
 
                   <td>
                     <v-btn
                       :class="getBackgroundColor(item.id,'hoverIcons')"
                       text
                       @click="$emit('delete:user', item.id)"
+                      aria-label="deletar"
                     >
                       <v-icon>mdi-delete</v-icon>
                     </v-btn>
                   </td>
                   <td>
-                    <v-btn :class="getBackgroundColor(item.id,'hoverIcons')" text>
+                    <v-btn :class="getBackgroundColor(item.id,'hoverIcons')" text aria-label="arquivar">
                       <v-icon>mdi-archive</v-icon>
                     </v-btn>
                   </td>
@@ -81,6 +82,7 @@
                       :class="getBackgroundColor(item.id,'hoverIcons')"
                       @click="editUser(item)"
                       text
+                      aria-label="editar"
                     >
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>
@@ -90,13 +92,14 @@
                       :class="getBackgroundColor(item.id,'hoverIcons')"
                       @click="editMode(item)"
                       text
+                      aria-label="editar"
                     >
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>
                   </td>
-                  <td data-label="ações">
+                  <td data-label="ações" aria-label="ações">>
                     <v-btn :class="getBackgroundColor(item.id,'hoverIcons')" text>
-                      <v-icon>mdi-dots-horizontal</v-icon>
+                      <v-icon aria-label="Mais ações">mdi-dots-horizontal</v-icon>
                     </v-btn>
                   </td>
                 </tr>
@@ -105,15 +108,15 @@
 
             <template slot="footer">
               <div class="containerFooter pt-5 pb-5">
-                <v-btn text class="leftFootButton" @click="jumpPage(false)">Primeiro</v-btn>
+                <v-btn text class="leftFootButton" @click="jumpPage(false)" aria-label="Primeiro">Primeiro</v-btn>
 
-                <v-btn text class="leftFootButton ml-2"  @click="changePag(true)">Anterior</v-btn>
+                <v-btn text class="leftFootButton ml-2"  @click="changePag(true)" aria-label="Anterior">Anterior</v-btn>
 
-                <v-btn text class="pink white--text ml-2">{{currentTablePage}}</v-btn>
+                <v-btn text class="pink white--text ml-2"  :aria-label="currentTablePage">{{currentTablePage}}</v-btn>
 
-                <v-btn text class="rightFootButton ml-2" @click="changePag(false)">Próximo</v-btn>
+                <v-btn text class="rightFootButton ml-2" @click="changePag(false)" aria-label="Próximo">Próximo</v-btn>
 
-                <v-btn text class="rightFootButton ml-2" @click="jumpPage(true)">Último</v-btn>
+                <v-btn text class="rightFootButton ml-2" @click="jumpPage(true)" aria-label="Último">Último</v-btn>
               </div>
             </template>
           </v-data-table>
