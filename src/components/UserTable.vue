@@ -97,7 +97,7 @@
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>
                   </td>
-                  <td data-label="ações" aria-label="ações">>
+                  <td data-label="ações" aria-label="ações">
                     <v-btn :class="getBackgroundColor(item.id,'hoverIcons')" text>
                       <v-icon aria-label="Mais ações">mdi-dots-horizontal</v-icon>
                     </v-btn>
