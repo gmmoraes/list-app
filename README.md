@@ -22,3 +22,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+## Funcionalidades 
+Edição de eliminação elementos da tabela
+Pesquisa pela searchbar
+Dados salvos em cache (modificações realizadas na tabela também)
+
